@@ -5,6 +5,23 @@
  * Phone Number with Country
  **/
 
+function showMessage(type, text = "") {
+  let msg = document.getElementById("message");
+  msg.className = "";
+  switch (type) {
+    case "error":
+      msg.className += "alert alert-danger";
+      msg.innerText = text;
+      break;
+    case "pass":
+      msg.className += "alert alert-primary";
+      msg.innerText = text;
+      break;
+    default:
+      console.log("Type of Message is Unknown");
+  }
+}
+
 document.getElementById("csubmit").addEventListener("click", (event) => {
   event.preventDefault();
 
@@ -18,20 +35,14 @@ document.getElementById("csubmit").addEventListener("click", (event) => {
   let msg = document.getElementById("message");
 
   if (cname == "" || cnum == "" || cvv == "" || expiry == "" || phnum == "") {
-    msg.className = "";
-    msg.className += "alert alert-danger";
-    msg.innerText = "Please fill in the required fields!";
+    showMessage("error", "Please fill in the required fields!");
   } else {
     let regexCard = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
 
     if (regexCard.test(cnum)) {
-      msg.className = "";
-      msg.className += "alert alert-primary";
-      msg.innerText = "Your card details have been submitted!";
+      showMessage("pass", "Your card details have been submitted!");
     } else {
-      msg.className = "";
-      msg.className += "alert alert-danger";
-      msg.innerText = "Enter a valid Card number!";
+      showMessage("error", "Enter a valid Card number!");
     }
   }
 });
