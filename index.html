@@ -14,30 +14,31 @@
   <div class="card-form mx-3 d-flex justify-content-center align-items-center">
     <div class="w-75 shadow bg-form">
       <h4 class="text-dark">Enter Credit Card Details</h4>
+      <small class="d-block text-right text-danger p-3">* are required fields!</small>
       <div id="message" role="alert"></div>
       <form class="text-right">
         <div class="form-group">
-          <input type="name" class="form-control" id="cname" placeholder="Name on the Card" required />
+          <input type="name" class="form-control" id="cname" placeholder="Name on the Card *" required />
         </div>
         <div class="form-group">
-          <input type="number" class="form-control" id="cnum" placeholder="Valid Card Number" required />
+          <input type="number" class="form-control" id="cnum" placeholder="Valid Card Number *" required />
         </div>
         <div class="row">
           <div class="col-sm-6 col-md-3">
             <div class="form-group">
-              <input type="text" class="form-control" id="expiry" placeholder="MM/YY" maxlength=5 required />
+              <input type="text" class="form-control" id="expiry" placeholder="MM/YY *" maxlength=5 required />
             </div>
           </div>
           <div class="col-sm-6 col-md-3">
             <div class="form-group">
-              <input type="text" class="form-control" id="cvv" placeholder="CVV" required />
+              <input type="text" class="form-control" id="cvv" placeholder="CVV *" required />
             </div>
           </div>
           <div class="col-sm-12 col-md-6">
             <div class="form-group">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <select id="code" class="py-2 pl-2 ph-select">
+                  <select id="code" class="py-2 px-2 ph-select">
                     <option value="1">US (+1)</option>
                     <option value="1">Canada (+1)</option>
                     <option value="91">India (+91)</option>
@@ -45,13 +46,13 @@
                   </select>
                 </div>
                 <input type="tel" class="form-control" id="ph-num" aria-label="Text input with dropdown button"
-                  maxlength=12 minlength=4 required />
+                  maxlength=12 minlength=4 placeholder="Enter valid phone number *" required />
               </div>
             </div>
           </div>
 
         </div>
-        <button type="submit" class="btn btn-primary" id="csubmit">
+        <button type="submit" class="font-weight-bold btn btn-primary" id="csubmit">
           Confirm
         </button>
       </form>
